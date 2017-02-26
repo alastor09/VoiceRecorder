@@ -9,26 +9,33 @@
 import Foundation
 import AVFoundation
 
+let MB: Double = (1024*1024)
+let GB: Double = (MB*1024)
+
 class RecordViewModel{
     
     var recordingState: RecordingState = RecordingState.NotStarted
     
     var recordingSession: AVAudioSession = AVAudioSession.sharedInstance()
     var audioRecorder: AVAudioRecorder!
-    var delegate:RecordViewDelegates
+    
+    var recordViewDelegate:RecordViewDelegates
+    var memoryDelegate:MemoryDelegate
 
-    init(delegateViewController: RecordViewDelegates) {
-        self.delegate = delegateViewController
+    init(delegateRecordViewController: RecordViewDelegates,memoryViewController: MemoryDelegate ) {
+        self.recordViewDelegate = delegateRecordViewController
+        self.memoryDelegate = memoryViewController
         self.checkCurrentPermission()
+        self.updateMemory()
     }
     
     func checkCurrentPermission() {
         switch recordingSession.recordPermission() {
         case AVAudioSessionRecordPermission.granted:
-            self.delegate.recordingAllowed()
+            self.recordViewDelegate.recordingAllowed()
             break
         case AVAudioSessionRecordPermission.denied:
-            self.delegate.recordingNotAllowed()
+            self.recordViewDelegate.recordingNotAllowed()
             break
         case AVAudioSessionRecordPermission.undetermined: break
         default: break
@@ -43,23 +50,23 @@ class RecordViewModel{
                 DispatchQueue.main.async {
                     if allowed {
                         self.recordingState = .Allowed
-                        self.delegate.recordingAllowed()
+                        self.recordViewDelegate.recordingAllowed()
                     } else {
                         self.recordingState = .NotAllowed
-                        self.delegate.recordingNotAllowed()
+                        self.recordViewDelegate.recordingNotAllowed()
                     }
                 }
             }
         } catch {
             self.recordingState = .NotAllowed
-            self.delegate.recordingNotAllowed()
+            self.recordViewDelegate.recordingNotAllowed()
         }
     }
     
     func startRecording() {
         self.recordingState = .Started
 
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let audioFilename = CommonUtilities.getDocumentsDirectory().appendingPathComponent("recording.m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -71,8 +78,8 @@ class RecordViewModel{
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()
-            
-            self.delegate.didStartRecording()
+
+            self.recordViewDelegate.didStartRecording()
         } catch {
 
         }
@@ -85,17 +92,37 @@ class RecordViewModel{
         audioRecorder = nil
         
         if success {
-            self.delegate.didFinishRecording()
+            self.recordViewDelegate.didFinishRecording()
         } else {
-            self.delegate.didFailedRecording()
+            self.recordViewDelegate.didFailedRecording()
         }
         
     }
     
+    //MARK: - Memory Calculations
     
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
+    func  updateMemory() {
+        if let memoryBytes = CommonUtilities.deviceRemainingFreeSpaceInBytes(){
+            
+            let GbSpace = memoryBytes / GB
+            let MbSpace = memoryBytes / MB
+            
+            var memoryString = "Memory Available: "
+            
+            if GbSpace >= 1.0 {
+                let space = String(format: "%.2f GB",GbSpace)
+                memoryString.append("\(space)")
+            }
+            else if MbSpace >= 1.0 {
+                let space = String(format: "%.2f MB",MbSpace)
+                memoryString.append("\(space)")
+            }
+            else{
+                let space = String(format: "%.2f Bytes",memoryBytes)
+                memoryString.append("\(space)")
+            }
+            
+            self.memoryDelegate.currentMemoryString(memoryString:memoryString)
+        }
     }
 }

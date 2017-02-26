@@ -8,8 +8,8 @@
 
 import Foundation
 
-class commonUtilities {
-   public class func deviceRemainingFreeSpaceInBytes() -> Int64? {
+class CommonUtilities {
+   public class func deviceRemainingFreeSpaceInBytes() -> Double? {
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
         guard
             let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: documentDirectory),
@@ -17,6 +17,26 @@ class commonUtilities {
             else {
                 return nil
         }
-        return freeSize.int64Value
+        return freeSize.doubleValue
+    }
+    
+    
+   public class func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
+    public class func getAllFilesInDocumentsDirectory() -> [String]?{
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentDirectory = paths[0] 
+        let manager = FileManager.default
+        var allItems: [String]?
+        do {
+            allItems = try manager.contentsOfDirectory(atPath: documentDirectory)
+            print(allItems)
+        } catch  {
+        }
+        return allItems
     }
 }

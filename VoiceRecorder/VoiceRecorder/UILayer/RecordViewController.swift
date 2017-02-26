@@ -16,7 +16,7 @@ class RecordViewController : UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        recorderViewModel = RecordViewModel(delegateViewController: self)
+        recorderViewModel = RecordViewModel(delegateRecordViewController: self, memoryViewController: self)
     }
 
     @IBAction func recordButtonClicked(_ sender: Any) {
@@ -54,9 +54,11 @@ extension RecordViewController : RecordViewDelegates{
     func recordingAllowed(){
         self.updateButtonTitle(titleString:RecordButtonTitle.NotStarted.UIString())
     }
+    
     func recordingNotAllowed(){
         self.updateButtonTitle(titleString:RecordButtonTitle.GetAccess.UIString())
     }
+    
     func didFailedRecording(){
         self.updateButtonTitle(titleString:RecordButtonTitle.Failed.UIString())
     }

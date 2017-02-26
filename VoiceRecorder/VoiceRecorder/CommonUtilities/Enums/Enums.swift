@@ -35,3 +35,8 @@ enum RecordButtonTitle: String{
         }
     }
 }
+
+enum FileType{
+    case Directory
+    case RecordedFile
+}

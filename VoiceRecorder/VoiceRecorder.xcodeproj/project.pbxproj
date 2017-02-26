@@ -18,6 +18,7 @@
 		165FF60C1E62BB0D00EFAA06 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60A1E62BB0D00EFAA06 /* Delegates.swift */; };
 		165FF60E1E62BB1B00EFAA06 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60D1E62BB1B00EFAA06 /* Enums.swift */; };
 		165FF6101E62CEDD00EFAA06 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60F1E62CEDD00EFAA06 /* CommonMethods.swift */; };
+		165FF6131E62F20D00EFAA06 /* FileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF6121E62F20D00EFAA06 /* FileMetadata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		165FF60A1E62BB0D00EFAA06 /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		165FF60D1E62BB1B00EFAA06 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		165FF60F1E62CEDD00EFAA06 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
+		165FF6121E62F20D00EFAA06 /* FileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileMetadata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		165FF5DC1E62B68F00EFAA06 /* VoiceRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				165FF6111E62F1ED00EFAA06 /* ModelLayer */,
 				165FF6081E62BB0D00EFAA06 /* CommonUtilities */,
 				165FF6001E62B6AC00EFAA06 /* UILayer */,
 				165FF5DD1E62B68F00EFAA06 /* AppDelegate.swift */,
@@ -141,6 +144,14 @@
 				165FF60D1E62BB1B00EFAA06 /* Enums.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		165FF6111E62F1ED00EFAA06 /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				165FF6121E62F20D00EFAA06 /* FileMetadata.swift */,
+			);
+			path = ModelLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 				165FF60C1E62BB0D00EFAA06 /* Delegates.swift in Sources */,
 				165FF60E1E62BB1B00EFAA06 /* Enums.swift in Sources */,
 				165FF6101E62CEDD00EFAA06 /* CommonMethods.swift in Sources */,
+				165FF6131E62F20D00EFAA06 /* FileMetadata.swift in Sources */,
 				165FF6041E62B76200EFAA06 /* RecordViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
