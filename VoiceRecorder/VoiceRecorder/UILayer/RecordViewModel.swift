@@ -44,7 +44,7 @@ class RecordViewModel{
     
     func configureVoiceRecorder() {
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setCategory(AVAudioSessionCategoryRecord)
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
@@ -90,6 +90,13 @@ class RecordViewModel{
         self.recordingState = .Stopped
         audioRecorder.stop()
         audioRecorder = nil
+        
+        do{
+            try AVAudioSession.sharedInstance().setActive(false)
+        }
+        catch{
+            
+        }
         
         if success {
             self.recordViewDelegate.didFinishRecording()

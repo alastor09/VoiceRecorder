@@ -36,6 +36,14 @@ class MediaPlayerViewModel : NSObject{
     }
     
     func playSound() {
+        do{
+            let session = AVAudioSession.sharedInstance()
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        }
+        catch{
+            playerState = .Error
+            playerDelegate.currentPlayerState(state: playerState)
+        }
         player.play()
         playerState = .Started
         playerDelegate.currentPlayerState(state: playerState)
@@ -47,6 +55,13 @@ class MediaPlayerViewModel : NSObject{
         print(player.currentTime)
         player.currentTime = 0
         playerDelegate.currentPlayerState(state: playerState)
+       
+        do{
+            try AVAudioSession.sharedInstance().setActive(false)
+        }
+        catch{
+            
+        }
     }
     
     func pauseSound() {

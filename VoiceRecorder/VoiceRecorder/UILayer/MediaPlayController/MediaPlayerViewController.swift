@@ -21,7 +21,7 @@ class MediaPlayerViewController: UIViewController {
         super.viewDidLoad()
         playerViewModel = MediaPlayerViewModel(playerDelegate: self, fileData: playerData!)
         playerViewModel?.preparePlay()
-        volumeSlider.value = 50
+        volumeSlider.value = 0.5
     }
     @IBAction func playButtonClicked(_ sender: Any) {
         if let playerSt = playerViewModel?.playerState{
