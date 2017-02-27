@@ -19,6 +19,10 @@
 		165FF60E1E62BB1B00EFAA06 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60D1E62BB1B00EFAA06 /* Enums.swift */; };
 		165FF6101E62CEDD00EFAA06 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60F1E62CEDD00EFAA06 /* CommonMethods.swift */; };
 		165FF6131E62F20D00EFAA06 /* FileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF6121E62F20D00EFAA06 /* FileMetadata.swift */; };
+		16D31DD61E63E5C100AB6838 /* FileDisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DD51E63E5C100AB6838 /* FileDisplayTableViewController.swift */; };
+		16D31DD81E63E5E400AB6838 /* FileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */; };
+		16D31DDB1E63F55300AB6838 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */; };
+		16D31DDD1E63F56C00AB6838 /* RecordedFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DDC1E63F56C00AB6838 /* RecordedFileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		165FF60D1E62BB1B00EFAA06 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		165FF60F1E62CEDD00EFAA06 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		165FF6121E62F20D00EFAA06 /* FileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileMetadata.swift; sourceTree = "<group>"; };
+		16D31DD51E63E5C100AB6838 /* FileDisplayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDisplayTableViewController.swift; sourceTree = "<group>"; };
+		16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDisplayViewModel.swift; sourceTree = "<group>"; };
+		16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		16D31DDC1E63F56C00AB6838 /* RecordedFileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedFileTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 		165FF6001E62B6AC00EFAA06 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				16D31DD41E63E5A500AB6838 /* DirectoryViewController */,
 				165FF6011E62B6AC00EFAA06 /* RecordViewController.swift */,
 				165FF6031E62B76200EFAA06 /* RecordViewModel.swift */,
 			);
@@ -152,6 +161,25 @@
 				165FF6121E62F20D00EFAA06 /* FileMetadata.swift */,
 			);
 			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		16D31DD41E63E5A500AB6838 /* DirectoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				16D31DD91E63F53C00AB6838 /* UICell */,
+				16D31DD51E63E5C100AB6838 /* FileDisplayTableViewController.swift */,
+				16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */,
+			);
+			path = DirectoryViewController;
+			sourceTree = "<group>";
+		};
+		16D31DD91E63F53C00AB6838 /* UICell */ = {
+			isa = PBXGroup;
+			children = (
+				16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */,
+				16D31DDC1E63F56C00AB6838 /* RecordedFileTableViewCell.swift */,
+			);
+			path = UICell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,10 +287,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D31DDB1E63F55300AB6838 /* FolderTableViewCell.swift in Sources */,
 				165FF5DE1E62B68F00EFAA06 /* AppDelegate.swift in Sources */,
+				16D31DD61E63E5C100AB6838 /* FileDisplayTableViewController.swift in Sources */,
 				165FF6021E62B6AC00EFAA06 /* RecordViewController.swift in Sources */,
 				165FF5E61E62B69000EFAA06 /* VoiceRecorder.xcdatamodeld in Sources */,
+				16D31DDD1E63F56C00AB6838 /* RecordedFileTableViewCell.swift in Sources */,
 				165FF60C1E62BB0D00EFAA06 /* Delegates.swift in Sources */,
+				16D31DD81E63E5E400AB6838 /* FileDisplayViewModel.swift in Sources */,
 				165FF60E1E62BB1B00EFAA06 /* Enums.swift in Sources */,
 				165FF6101E62CEDD00EFAA06 /* CommonMethods.swift in Sources */,
 				165FF6131E62F20D00EFAA06 /* FileMetadata.swift in Sources */,
@@ -476,6 +508,7 @@
 				165FF5FC1E62B69000EFAA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		165FF5FD1E62B69000EFAA06 /* Build configuration list for PBXNativeTarget "VoiceRecorderTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +517,7 @@
 				165FF5FF1E62B69000EFAA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

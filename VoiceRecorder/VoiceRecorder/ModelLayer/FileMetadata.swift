@@ -19,7 +19,7 @@ class FileMetadata {
         self.fileName = path.lastPathComponent
         self.fileExtension = path.pathExtension
         do{
-            let attr = try FileManager.default.attributesOfItem(atPath: path.absoluteString)
+            let attr = try FileManager.default.attributesOfItem(atPath: path.relativePath)
             self.size = Double(attr[FileAttributeKey.size] as! UInt64)
         }
         catch{

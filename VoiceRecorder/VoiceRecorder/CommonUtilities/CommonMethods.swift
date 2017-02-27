@@ -27,16 +27,46 @@ class CommonUtilities {
         return documentsDirectory
     }
     
-    public class func getAllFilesInDocumentsDirectory() -> [String]?{
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentDirectory = paths[0] 
+    public class func getAllFilesInDocumentsDirectory() -> [FileMetadata]?{
+        let documentDirectory = self.getDocumentsDirectory()
+        let allItems = CommonUtilities.getAllFilesInDirectoryPath(path: documentDirectory.absoluteURL)
+        return allItems
+    }
+    
+    public class func getAllFilesInDirectoryPath(path: URL) -> [FileMetadata]?{
         let manager = FileManager.default
         var allItems: [String]?
+        var folders: [FileMetadata]? = []
         do {
-            allItems = try manager.contentsOfDirectory(atPath: documentDirectory)
-            print(allItems)
-        } catch  {
+            allItems = try manager.contentsOfDirectory(atPath: path.relativePath)
+            for stringPaths in allItems! {
+                let url = URL(fileURLWithPath: path.appendingPathComponent(stringPaths).relativePath)
+                folders?.append(FileMetadata(path: url))
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
-        return allItems
+        return folders
+    }
+    
+    public class func fileSizeString(memoryBytes: Double) -> String{
+        let GbSpace = memoryBytes / GB
+        let MbSpace = memoryBytes / MB
+        
+        var memoryString = ""
+        
+        if GbSpace >= 1.0 {
+            let space = String(format: "%.2f GB",GbSpace)
+            memoryString.append("\(space)")
+        }
+        else if MbSpace >= 1.0 {
+            let space = String(format: "%.2f MB",MbSpace)
+            memoryString.append("\(space)")
+        }
+        else{
+            let space = String(format: "%.2f Bytes",memoryBytes)
+            memoryString.append("\(space)")
+        }
+        return memoryString
     }
 }

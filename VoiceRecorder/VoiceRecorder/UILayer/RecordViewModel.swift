@@ -103,25 +103,7 @@ class RecordViewModel{
     
     func  updateMemory() {
         if let memoryBytes = CommonUtilities.deviceRemainingFreeSpaceInBytes(){
-            
-            let GbSpace = memoryBytes / GB
-            let MbSpace = memoryBytes / MB
-            
-            var memoryString = "Memory Available: "
-            
-            if GbSpace >= 1.0 {
-                let space = String(format: "%.2f GB",GbSpace)
-                memoryString.append("\(space)")
-            }
-            else if MbSpace >= 1.0 {
-                let space = String(format: "%.2f MB",MbSpace)
-                memoryString.append("\(space)")
-            }
-            else{
-                let space = String(format: "%.2f Bytes",memoryBytes)
-                memoryString.append("\(space)")
-            }
-            
+            let memoryString = "Memory Available: \(CommonUtilities.fileSizeString(memoryBytes: memoryBytes)) "
             self.memoryDelegate.currentMemoryString(memoryString:memoryString)
         }
     }

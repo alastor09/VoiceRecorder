@@ -68,5 +68,14 @@ extension RecordViewController : MemoryDelegate{
     func currentMemoryString(memoryString: String){
         self.memoryLabel.text = memoryString
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFiles"{
+            let destinationView: FileDisplayTableViewController = segue.destination as! FileDisplayTableViewController
+            destinationView.filePath = CommonUtilities.getDocumentsDirectory().relativePath
+        }
+    }
 }
 
