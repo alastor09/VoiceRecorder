@@ -40,3 +40,31 @@ enum FileType{
     case Directory
     case RecordedFile
 }
+
+enum PlayerState{
+    case Ready
+    case Started
+    case Stopped
+    case Paused
+    case Error
+}
+
+enum PlayButtonTitle: String{
+    case NotStarted, Ready, Started, Paused, Stopped, Error
+    func UIString() -> String {
+        switch self {
+        case .NotStarted:
+            return "Waiting"
+        case .Ready:
+            return "Play"
+        case .Started:
+            return "Pause"
+        case .Paused:
+            return "Play"
+        case .Stopped:
+            return "Play"
+        case .Error:
+            return "Error"
+        }
+    }
+}

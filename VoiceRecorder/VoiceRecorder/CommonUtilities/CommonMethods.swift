@@ -46,6 +46,7 @@ class CommonUtilities {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        
         return folders
     }
     
@@ -67,6 +68,19 @@ class CommonUtilities {
             let space = String(format: "%.2f Bytes",memoryBytes)
             memoryString.append("\(space)")
         }
+        
         return memoryString
+    }
+    
+    public class func stringFromTimeInterval(interval: TimeInterval) -> String {
+        
+        let ti = NSInteger(interval)
+        let ms = Int(interval * 1000)
+        
+        let seconds = ti % 60
+        let minutes = (ti / 60) % 60
+        let hours = (ti / 3600)
+        
+        return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
     }
 }

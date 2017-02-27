@@ -23,6 +23,8 @@
 		16D31DD81E63E5E400AB6838 /* FileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */; };
 		16D31DDB1E63F55300AB6838 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */; };
 		16D31DDD1E63F56C00AB6838 /* RecordedFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DDC1E63F56C00AB6838 /* RecordedFileTableViewCell.swift */; };
+		16D31DE01E6429D100AB6838 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DDF1E6429D100AB6838 /* MediaPlayerViewController.swift */; };
+		16D31DE21E6429F900AB6838 /* MediaPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DE11E6429F900AB6838 /* MediaPlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDisplayViewModel.swift; sourceTree = "<group>"; };
 		16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		16D31DDC1E63F56C00AB6838 /* RecordedFileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedFileTableViewCell.swift; sourceTree = "<group>"; };
+		16D31DDF1E6429D100AB6838 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
+		16D31DE11E6429F900AB6838 /* MediaPlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 		165FF6001E62B6AC00EFAA06 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				16D31DDE1E6429AF00AB6838 /* MediaPlayController */,
 				16D31DD41E63E5A500AB6838 /* DirectoryViewController */,
 				165FF6011E62B6AC00EFAA06 /* RecordViewController.swift */,
 				165FF6031E62B76200EFAA06 /* RecordViewModel.swift */,
@@ -180,6 +185,15 @@
 				16D31DDC1E63F56C00AB6838 /* RecordedFileTableViewCell.swift */,
 			);
 			path = UICell;
+			sourceTree = "<group>";
+		};
+		16D31DDE1E6429AF00AB6838 /* MediaPlayController */ = {
+			isa = PBXGroup;
+			children = (
+				16D31DDF1E6429D100AB6838 /* MediaPlayerViewController.swift */,
+				16D31DE11E6429F900AB6838 /* MediaPlayerViewModel.swift */,
+			);
+			path = MediaPlayController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +308,8 @@
 				165FF5E61E62B69000EFAA06 /* VoiceRecorder.xcdatamodeld in Sources */,
 				16D31DDD1E63F56C00AB6838 /* RecordedFileTableViewCell.swift in Sources */,
 				165FF60C1E62BB0D00EFAA06 /* Delegates.swift in Sources */,
+				16D31DE01E6429D100AB6838 /* MediaPlayerViewController.swift in Sources */,
+				16D31DE21E6429F900AB6838 /* MediaPlayerViewModel.swift in Sources */,
 				16D31DD81E63E5E400AB6838 /* FileDisplayViewModel.swift in Sources */,
 				165FF60E1E62BB1B00EFAA06 /* Enums.swift in Sources */,
 				165FF6101E62CEDD00EFAA06 /* CommonMethods.swift in Sources */,

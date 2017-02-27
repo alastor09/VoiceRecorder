@@ -74,10 +74,17 @@ class FileDisplayTableViewController: UITableViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "playSound", sender: nil)
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if segue.identifier == "playSound"{
+            let destinationView: MediaPlayerViewController = segue.destination as! MediaPlayerViewController
+            destinationView.playerData = self.fileDisplayViewModel?.fileDisplayData?.first
+        }
     }
 
 }

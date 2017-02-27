@@ -19,3 +19,8 @@ protocol RecordViewDelegates {
 protocol MemoryDelegate {
     func currentMemoryString(memoryString: String)
 }
+
+protocol PlayerDelegate {
+    func currentPlayerState(state: PlayerState)
+    func playerTotalTime(totalTime:String)
+}
