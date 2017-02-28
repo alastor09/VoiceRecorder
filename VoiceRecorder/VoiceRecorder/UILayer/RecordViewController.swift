@@ -58,6 +58,7 @@ class RecordViewController : UIViewController {
 extension RecordViewController : RecordViewDelegates{
     func didFinishRecording(){
         self.updateButtonTitle(titleString:RecordButtonTitle.Done.UIString())
+        self.fileNameTextField.text = ""
         self.fileNameTextField.isEnabled = true
         self.levelMeter.value = 0
     }

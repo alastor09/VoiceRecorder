@@ -96,6 +96,7 @@ class RecordViewModel{
         self.timer?.invalidate()
         audioRecorder.stop()
         audioRecorder = nil
+        self.updateMemory()
         
         do{
             try AVAudioSession.sharedInstance().setActive(false)

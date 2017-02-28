@@ -56,7 +56,10 @@ class FileDisplayTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let modelObj = self.fileDisplayViewModel?.fileDisplayData?[indexPath.row]{
+                self.fileDisplayViewModel?.removeFileWithMetaData(fileMetaData: modelObj, index: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         }
     }
     

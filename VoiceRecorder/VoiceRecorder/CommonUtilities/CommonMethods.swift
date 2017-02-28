@@ -50,6 +50,15 @@ class CommonUtilities {
         return folders
     }
     
+    public class func removeFile(filePath:String) {
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(atPath: filePath)
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
+    }
+    
     public class func fileSizeString(memoryBytes: Double) -> String{
         let GbSpace = memoryBytes / GB
         let MbSpace = memoryBytes / MB

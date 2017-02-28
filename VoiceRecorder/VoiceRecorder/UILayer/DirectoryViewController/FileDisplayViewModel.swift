@@ -16,4 +16,9 @@ class FileDisplayViewModel{
     init(filePath: String) {
         self.fileDisplayData = CommonUtilities.getAllFilesInDirectoryPath(path: URL(fileURLWithPath: filePath))
     }
+    
+    func removeFileWithMetaData(fileMetaData: FileMetadata, index: Int){
+        CommonUtilities.removeFile(filePath: fileMetaData.path.relativePath)
+        fileDisplayData?.remove(at: index)
+    }
 }
