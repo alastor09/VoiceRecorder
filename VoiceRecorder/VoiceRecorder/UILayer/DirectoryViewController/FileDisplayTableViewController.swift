@@ -83,7 +83,11 @@ class FileDisplayTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "playSound"{
             let destinationView: MediaPlayerViewController = segue.destination as! MediaPlayerViewController
-            destinationView.playerData = self.fileDisplayViewModel?.fileDisplayData?.first
+            
+            if let indexSelected = self.tableView.indexPathForSelectedRow {
+                let playerData = self.fileDisplayViewModel?.fileDisplayData?[indexSelected.row]
+                destinationView.playerData = playerData
+            }
         }
     }
 

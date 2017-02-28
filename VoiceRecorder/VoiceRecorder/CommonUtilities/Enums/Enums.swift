@@ -27,7 +27,7 @@ enum RecordButtonTitle: String{
         case .GetAccess:
             return "Provide Access in Settings"
         case .OnGoing:
-            return "Recording.."
+            return "Stop"
         case .Failed:
             return "Re-Record"
         case .Done:

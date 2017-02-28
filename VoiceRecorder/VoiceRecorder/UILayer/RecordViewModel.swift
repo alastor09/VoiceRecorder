@@ -22,6 +22,10 @@ class RecordViewModel{
     var recordViewDelegate:RecordViewDelegates
     var memoryDelegate:MemoryDelegate
 
+    var timer: Timer?
+    var lowPassResults: Double = 0.0
+    var fileName: String = "recording"
+    
     init(delegateRecordViewController: RecordViewDelegates,memoryViewController: MemoryDelegate ) {
         self.recordViewDelegate = delegateRecordViewController
         self.memoryDelegate = memoryViewController
@@ -66,7 +70,7 @@ class RecordViewModel{
     func startRecording() {
         self.recordingState = .Started
 
-        let audioFilename = CommonUtilities.getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let audioFilename = CommonUtilities.getDocumentsDirectory().appendingPathComponent("\(fileName).m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -78,7 +82,8 @@ class RecordViewModel{
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()
-
+            audioRecorder.isMeteringEnabled = true
+            self.prepareTimer()
             self.recordViewDelegate.didStartRecording()
         } catch {
 
@@ -88,6 +93,7 @@ class RecordViewModel{
     
     func stopRecording(success: Bool) {
         self.recordingState = .Stopped
+        self.timer?.invalidate()
         audioRecorder.stop()
         audioRecorder = nil
         
@@ -104,6 +110,20 @@ class RecordViewModel{
             self.recordViewDelegate.didFailedRecording()
         }
         
+    }
+    
+    //MARK: - Timer for LEvel check
+    func prepareTimer(){
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true, block: { (timer) in
+          self.timerCalled()
+        })
+    }
+    
+    func timerCalled() {
+        self.audioRecorder.updateMeters()
+
+        let peakPowerForChannel = Double(pow(10, (0.05 * self.audioRecorder.peakPower(forChannel: 0))))
+        self.recordViewDelegate.levelMeterValue(lowPassResult: peakPowerForChannel)
     }
     
     //MARK: - Memory Calculations

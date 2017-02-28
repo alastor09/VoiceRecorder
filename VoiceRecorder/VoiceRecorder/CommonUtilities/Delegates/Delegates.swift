@@ -14,6 +14,7 @@ protocol RecordViewDelegates {
     func didStartRecording()
     func recordingAllowed()
     func recordingNotAllowed()
+    func levelMeterValue(lowPassResult: Double)
 }
 
 protocol MemoryDelegate {

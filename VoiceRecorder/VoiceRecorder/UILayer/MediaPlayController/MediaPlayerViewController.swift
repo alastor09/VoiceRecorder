@@ -23,6 +23,11 @@ class MediaPlayerViewController: UIViewController {
         playerViewModel?.preparePlay()
         volumeSlider.value = 0.5
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        playerViewModel?.stopSound()
+    }
+    
     @IBAction func playButtonClicked(_ sender: Any) {
         if let playerSt = playerViewModel?.playerState{
             switch playerSt {
