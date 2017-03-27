@@ -205,7 +205,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-6d-yra">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-6d-yra" customClass="MPVolumeView">
                                 <rect key="frame" x="16" y="576" width="343" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -227,7 +227,6 @@
                     <connections>
                         <outlet property="playButton" destination="mvY-g6-Xdw" id="qo5-E4-1SB"/>
                         <outlet property="timeLabel" destination="4jJ-X8-CEe" id="n35-Kl-beN"/>
-                        <outlet property="volumeView" destination="0yi-6d-yra" id="BG1-5e-aOW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lxj-yD-ccK" userLabel="First Responder" sceneMemberID="firstResponder"/>

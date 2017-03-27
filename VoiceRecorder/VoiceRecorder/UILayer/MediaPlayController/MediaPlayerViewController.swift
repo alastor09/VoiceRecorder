@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MediaPlayer
 
 class MediaPlayerViewController: UIViewController {
 
@@ -16,13 +15,11 @@ class MediaPlayerViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var volumeView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         playerViewModel = MediaPlayerViewModel(playerDelegate: self, fileData: playerData!)
         playerViewModel?.preparePlay()
-        volumeView.addSubview(MPVolumeView(frame: self.volumeView.bounds))
     }
     
     override func viewDidDisappear(_ animated: Bool) {

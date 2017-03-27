@@ -19,6 +19,7 @@
 		165FF60E1E62BB1B00EFAA06 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60D1E62BB1B00EFAA06 /* Enums.swift */; };
 		165FF6101E62CEDD00EFAA06 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF60F1E62CEDD00EFAA06 /* CommonMethods.swift */; };
 		165FF6131E62F20D00EFAA06 /* FileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF6121E62F20D00EFAA06 /* FileMetadata.swift */; };
+		169A8FFF1E88EA1D00CAE705 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169A8FFE1E88EA1D00CAE705 /* MediaPlayer.framework */; };
 		16D31DD61E63E5C100AB6838 /* FileDisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DD51E63E5C100AB6838 /* FileDisplayTableViewController.swift */; };
 		16D31DD81E63E5E400AB6838 /* FileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */; };
 		16D31DDB1E63F55300AB6838 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */; };
@@ -54,6 +55,7 @@
 		165FF60D1E62BB1B00EFAA06 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		165FF60F1E62CEDD00EFAA06 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		165FF6121E62F20D00EFAA06 /* FileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileMetadata.swift; sourceTree = "<group>"; };
+		169A8FFE1E88EA1D00CAE705 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		16D31DD51E63E5C100AB6838 /* FileDisplayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDisplayTableViewController.swift; sourceTree = "<group>"; };
 		16D31DD71E63E5E400AB6838 /* FileDisplayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDisplayViewModel.swift; sourceTree = "<group>"; };
 		16D31DDA1E63F55300AB6838 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				169A8FFF1E88EA1D00CAE705 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 				165FF5DC1E62B68F00EFAA06 /* VoiceRecorder */,
 				165FF5F41E62B69000EFAA06 /* VoiceRecorderTests */,
 				165FF5DB1E62B68F00EFAA06 /* Products */,
+				169A8FFD1E88EA1D00CAE705 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +170,14 @@
 				165FF6121E62F20D00EFAA06 /* FileMetadata.swift */,
 			);
 			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		169A8FFD1E88EA1D00CAE705 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				169A8FFE1E88EA1D00CAE705 /* MediaPlayer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		16D31DD41E63E5A500AB6838 /* DirectoryViewController */ = {
