@@ -199,26 +199,27 @@
                                     <action selector="playButtonClicked:" destination="4fF-Es-CgU" eventType="touchUpInside" id="F1d-nc-NyQ"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sf6-Aq-bgP">
-                                <rect key="frame" x="14" y="579" width="347" height="31"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="4fF-Es-CgU" eventType="valueChanged" id="F2g-Jp-tms"/>
-                                </connections>
-                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jJ-X8-CEe">
                                 <rect key="frame" x="317" y="626" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-6d-yra">
+                                <rect key="frame" x="16" y="576" width="343" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="drA-XR-HhG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LSg-Ri-Tdj" firstAttribute="top" secondItem="4jJ-X8-CEe" secondAttribute="bottom" constant="20" id="DWd-jc-5J1"/>
                             <constraint firstItem="LSg-Ri-Tdj" firstAttribute="top" secondItem="mvY-g6-Xdw" secondAttribute="bottom" constant="20" id="NXi-SY-r2p"/>
-                            <constraint firstItem="Sf6-Aq-bgP" firstAttribute="leading" secondItem="MUv-pP-eKQ" secondAttribute="leading" constant="16" id="OVJ-Hz-xBf"/>
-                            <constraint firstAttribute="trailing" secondItem="Sf6-Aq-bgP" secondAttribute="trailing" constant="16" id="Vx3-f1-rCz"/>
-                            <constraint firstItem="mvY-g6-Xdw" firstAttribute="top" secondItem="Sf6-Aq-bgP" secondAttribute="bottom" constant="8" id="mVI-a8-iMh"/>
+                            <constraint firstItem="0yi-6d-yra" firstAttribute="leading" secondItem="MUv-pP-eKQ" secondAttribute="leading" constant="16" id="ZP3-ja-9XU"/>
+                            <constraint firstItem="mvY-g6-Xdw" firstAttribute="top" secondItem="0yi-6d-yra" secondAttribute="bottom" constant="8" id="ebZ-ac-sVi"/>
+                            <constraint firstAttribute="trailing" secondItem="0yi-6d-yra" secondAttribute="trailing" constant="16" id="myj-ob-LL5"/>
                             <constraint firstAttribute="trailing" secondItem="4jJ-X8-CEe" secondAttribute="trailing" constant="16" id="oOa-gs-Yb7"/>
                             <constraint firstItem="mvY-g6-Xdw" firstAttribute="centerX" secondItem="MUv-pP-eKQ" secondAttribute="centerX" id="zOI-4v-Omg"/>
                         </constraints>
@@ -226,7 +227,7 @@
                     <connections>
                         <outlet property="playButton" destination="mvY-g6-Xdw" id="qo5-E4-1SB"/>
                         <outlet property="timeLabel" destination="4jJ-X8-CEe" id="n35-Kl-beN"/>
-                        <outlet property="volumeSlider" destination="Sf6-Aq-bgP" id="93R-ZQ-GFn"/>
+                        <outlet property="volumeView" destination="0yi-6d-yra" id="BG1-5e-aOW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lxj-yD-ccK" userLabel="First Responder" sceneMemberID="firstResponder"/>

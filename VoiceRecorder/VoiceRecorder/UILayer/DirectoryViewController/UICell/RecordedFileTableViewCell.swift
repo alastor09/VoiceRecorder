@@ -24,9 +24,9 @@ class RecordedFileTableViewCell: UITableViewCell {
 
 
 class RecordedFileModel {
-    var fileMetadata: FileMetadata
-    var fileName: String
-    var fileDetailString: String
+    let fileMetadata: FileMetadata
+    let fileName: String
+    let fileDetailString: String
     
     init(fileMetadata: FileMetadata) {
         self.fileMetadata = fileMetadata

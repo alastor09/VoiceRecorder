@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class MediaPlayerViewController: UIViewController {
 
@@ -15,16 +16,16 @@ class MediaPlayerViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var volumeSlider: UISlider!
+    @IBOutlet weak var volumeView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         playerViewModel = MediaPlayerViewModel(playerDelegate: self, fileData: playerData!)
         playerViewModel?.preparePlay()
-        volumeSlider.value = 0.5
+        volumeView.addSubview(MPVolumeView(frame: self.volumeView.bounds))
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         playerViewModel?.stopSound()
     }
     
@@ -45,10 +46,6 @@ class MediaPlayerViewController: UIViewController {
         self.playButton.setTitle(titleString, for: .highlighted)
         self.playButton.setTitle(titleString, for: .disabled)
         self.playButton.setTitle(titleString, for: .selected)
-    }
-    @IBAction func sliderChanged(_ sender: Any) {
-        let slider = sender as! UISlider
-        playerViewModel?.changeVolumeLevel(level: slider.value)
     }
 }
 

@@ -45,6 +45,7 @@ class MediaPlayerViewModel : NSObject{
             playerDelegate.currentPlayerState(state: playerState)
         }
         player.play()
+        
         playerState = .Started
         playerDelegate.currentPlayerState(state: playerState)
     }
@@ -70,9 +71,6 @@ class MediaPlayerViewModel : NSObject{
         playerDelegate.currentPlayerState(state: playerState)
     }
     
-    func changeVolumeLevel(level: Float) {
-        player.volume = level
-    }
 }
 
 extension MediaPlayerViewModel: AVAudioPlayerDelegate{
